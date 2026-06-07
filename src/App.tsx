@@ -71,7 +71,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className="relative z-10 min-h-screen pt-24 pb-20">
+      <div className="relative z-10 min-h-screen pt-40 pb-20">
         <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
         
         <main className="max-w-7xl mx-auto px-4 md:px-8">
@@ -80,11 +80,11 @@ export default function App() {
           <>
             {/* News Hero / Spotlight */}
             <section className="mb-12">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+              <div className="items-stretch">
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="lg:col-span-8 glass-white rounded-[2rem] p-4 group cursor-pointer card-3d"
+                  className="glass-white rounded-[2rem] p-4 group cursor-pointer card-3d"
                 >
                   <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden rounded-[1.5rem]">
                     <img 
@@ -106,33 +106,6 @@ export default function App() {
                     </div>
                   </div>
                 </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="lg:col-span-4 glass-white rounded-[2rem] p-8 flex flex-col justify-between card-3d"
-                >
-                  <div>
-                    <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-                      <Newspaper className="w-5 h-5 text-brand-red" /> Pengumuman
-                    </h2>
-                    <div className="space-y-6">
-                      {[1, 2, 3].map((i) => (
-                        <div key={i} className="group cursor-pointer">
-                          <p className="text-[10px] text-brand-red font-bold uppercase tracking-widest mb-1">05/05/2026</p>
-                          <h3 className="text-sm font-bold text-slate-800 group-hover:text-brand-red transition-colors line-clamp-2">
-                            Pendaftaran Anggota Baru Siklus Mei 2026 Telah Dibuka
-                          </h3>
-                          <div className="mt-2 h-[1px] w-full bg-slate-200" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <button className="flex items-center gap-2 text-sm font-bold text-brand-red hover:gap-3 transition-all mt-8">
-                    Semua Pengumuman <ArrowRight className="w-4 h-4" />
-                  </button>
-                </motion.div>
               </div>
             </section>
 
@@ -141,7 +114,6 @@ export default function App() {
               <div className="flex items-end justify-between mb-8">
                 <div>
                   <span className="text-brand-red text-xs font-black uppercase tracking-[0.2em]">Pembaruan Terkini</span>
-                  <h2 className="text-3xl font-serif font-bold text-slate-800 mt-2 italic">Kabar Organisasi</h2>
                 </div>
                 <button className="text-sm font-bold text-slate-400 hover:text-brand-red transition-colors flex items-center gap-1">
                   Lihat Semua <ChevronRight className="w-4 h-4" />
@@ -198,14 +170,6 @@ export default function App() {
                   <p className="mt-6 text-slate-600 leading-relaxed font-medium">
                     Kami hadir sebagai wadah aspirasi dan perjuangan seluruh karyawan PLN di wilayah Kalimantan Barat. Bersatu dalam harmoni untuk mewujudkan kesejahteraan dan pelayanan prima.
                   </p>
-                  <div className="flex flex-wrap gap-4 mt-10">
-                    <button className="bg-brand-red text-white px-8 py-3 rounded-full text-sm font-bold shadow-xl shadow-brand-red/20 hover:scale-105 transition-all">
-                      Profil SP PLN
-                    </button>
-                    <button className="border border-slate-200 text-slate-600 px-8 py-3 rounded-full text-sm font-bold hover:bg-slate-50 transition-all">
-                      Hubungi Kami
-                    </button>
-                  </div>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-8 glass-white rounded-3xl flex flex-col items-center text-center card-3d">
@@ -260,10 +224,10 @@ export default function App() {
             <div>
               <h4 className="text-sm font-black uppercase tracking-widest text-slate-800 mb-6 underline decoration-brand-yellow decoration-4 underline-offset-8">Tautan Cepat</h4>
               <ul className="space-y-4 text-sm font-bold text-slate-500">
-                <li className="hover:text-brand-red cursor-pointer transition-colors">Anggaran Dasar & Rumah Tangga</li>
-                <li className="hover:text-brand-red cursor-pointer transition-colors">Struktur Organisasi</li>
-                <li className="hover:text-brand-red cursor-pointer transition-colors">Agenda Kegiatan</li>
-                <li className="hover:text-brand-red cursor-pointer transition-colors">Download Dokumen</li>
+                <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('ad_art')}>Anggaran Dasar & Rumah Tangga</li>
+                <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('structure')}>Struktur Organisasi</li>
+                <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('agenda')}>Agenda Kegiatan</li>
+                <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('download')}>Download Dokumen</li>
               </ul>
             </div>
  
