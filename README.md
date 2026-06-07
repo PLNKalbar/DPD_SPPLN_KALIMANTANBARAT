@@ -29,16 +29,16 @@ Aplikasi web untuk menampilkan profil dan struktur organisasi dari Dewan Pimpina
 
 ### Cara Deploy ke GitHub Pages 
 
-Karena adanya pembatasan izin (*permission*) untuk ekspor *workflow/action* otomatis dari AI Studio ke akun GitHub, konfigurasi build otomatis harus dibuat langsung di website GitHub.
+Karena Vite menghasilkan output ke folder khusus, cara terbaik untuk deploy adalah menggunakan GitHub Actions. Pastikan proyek Anda telah diekspor (di-push) dari AI Studio ke repository GitHub Anda.
 
-Langkah demi langkah menggunakan GitHub Actions:
-1. Klik pengaturan ekspor lagi lalu **Push** repository ini ke GitHub tanpa error.
-2. Buka repository GitHub Anda di browser komputer.
+Langkah demi langkah agar bisa Online (Situs tidak blank):
+1. **Ekspor** / Sinkronisasi ulang repository ini dari AI Studio ke GitHub.
+2. Buka repository GitHub Anda di browser.
 3. Klik tab **Settings** > lalu ke bagian **Pages** (ada di menu sisi kiri).
-4. Di bagian **Build and deployment** (atau **Source**), pilih opsi **GitHub Actions**.
-5. Klik **"Create your own"** atau gunakan alur bawaan GitHub, dan konfigurasi GitHub Action untuk framework statis/Vite akan muncul. GitHub akan *meng-compile* file TSX Anda menjadi HTML murni yang dapat dibaca dan menampilkannya di internet.
-
-Dengan langkah ini, Anda tidak perlu mengubah kembali proyek secara manual menjadi HTML klasik. Setingan canggih GitHub yang akan mengurus kompilasi kode *React* ini saat dideploy!
+4. Pada bagian **Build and deployment** (atau **Source**), pilih opsi **GitHub Actions** (PENTING!).
+5. GitHub akan menampilkan beberapa pilihan alur kerja (workflow). Klik **"Static HTML"** atau jika ada **"Vite"** pilih opsi tersebut. Jika menggunakan **Static HTML**, modifikasi langkah build dengan menambahkan `npm ci` dan `npm run build`, lalu ubah direktori upload artifact ke `dist` (bukan `.`).
+6. Solusi lebih baik, konfigurasikan file `.github/workflows/deploy.yml` langsung di respository GitHub Anda (lihat panduan Vite deploy untuk GitHub pages). Jika Anda sudah meletakkan "base: './'" pada vite.config.ts seperti pada web ini, masalah layar blank (putih) sudah teratasi otomatis.
+7. Tunggu GitHub Action memproses build (bisa dilihat di tab *Actions*). Setelah selesai centang hijau, situs Anda akan live!
 
 ## Teknologi 
 - **React.js** (Vite + TS)
