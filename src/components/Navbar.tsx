@@ -16,6 +16,7 @@ const navItems: { icon: any; label: string; id: TabType }[] = [
   { icon: Network, label: 'Struktur Organisasi', id: 'structure' },
   { icon: Calendar, label: 'Agenda Kegiatan', id: 'agenda' },
   { icon: Download, label: 'Download Dokumen', id: 'download' },
+  { icon: MessageSquare, label: 'Forum Aspirasi', id: 'aspiration' },
   { icon: Info, label: 'Tentang', id: 'about' },
 ];
 

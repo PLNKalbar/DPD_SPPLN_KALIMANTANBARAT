@@ -194,6 +194,16 @@ export default function App() {
           </>
         ) : activeTab === 'structure' ? (
           <Structure />
+        ) : activeTab === 'aspiration' ? (
+          <div className="w-full relative glass-white rounded-[2rem] overflow-hidden shadow-2xl p-0 h-[80vh]">
+            <iframe 
+              src="https://docs.google.com/forms/d/e/1FAIpQLSckso2RJf21ES-E918VCgw47-q_FqNLk_0hSjUjD5PM_7hEPQ/viewform?embedded=true" 
+              className="w-full h-full border-0 absolute top-0 left-0" 
+              title="Forum Aspirasi"
+            >
+              Memuat…
+            </iframe>
+          </div>
         ) : (
           <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-12 glass-white rounded-[3rem]">
             <h2 className="text-3xl font-serif font-bold text-slate-800 italic mb-4">Halaman sedang dalam pengembangan</h2>
@@ -228,6 +238,7 @@ export default function App() {
                 <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('structure')}>Struktur Organisasi</li>
                 <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('agenda')}>Agenda Kegiatan</li>
                 <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('download')}>Download Dokumen</li>
+                <li className="hover:text-brand-red cursor-pointer transition-colors" onClick={() => setActiveTab('aspiration')}>Forum Aspirasi</li>
               </ul>
             </div>
  
