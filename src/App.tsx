@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { Navbar, TabType } from './components/Navbar.tsx';
 import { Structure } from './components/Structure.tsx';
+import { AboutSection, AdArtSection, AgendaSection, DownloadSection } from './components/Pages.tsx';
 import { cn } from './lib/utils';
 
 // Latest News Data
@@ -204,6 +205,14 @@ export default function App() {
               Memuat…
             </iframe>
           </div>
+        ) : activeTab === 'about' ? (
+          <AboutSection />
+        ) : activeTab === 'ad_art' ? (
+          <AdArtSection />
+        ) : activeTab === 'agenda' ? (
+          <AgendaSection items={newsItems} />
+        ) : activeTab === 'download' ? (
+          <DownloadSection />
         ) : (
           <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-12 glass-white rounded-[3rem]">
             <h2 className="text-3xl font-serif font-bold text-slate-800 italic mb-4">Halaman sedang dalam pengembangan</h2>
